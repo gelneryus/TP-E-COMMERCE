@@ -1,0 +1,135 @@
+/* Fuente base */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cards de productos */
+.product-card {
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen del producto */
+.product-img {
+  object-fit: contain;
+  height: 200px;
+}
+
+/* Botón de favoritos */
+.favorite-btn {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.3rem;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* Sidebar carrito */
+#cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  z-index: 1050;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+#cart-sidebar.open {
+  right: 0;
+}
+
+/* Estilos para modo oscuro */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.dark-mode .btn {
+  border-color: #ccc;
+  color: #fff;
+}
+
+/* Selector de categoría, orden y búsqueda */
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.filters-container select,
+.filters-container input {
+  min-width: 180px;
+}
+
+/* Paginación */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+/* Estilos para el carrito */
+#cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;  /* Inicialmente fuera de la pantalla */
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+#cart-sidebar.open {
+  right: 0;  /* Cuando se añade la clase 'open', se mueve al lado derecho */
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.cart-item-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.remove-item-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#toggle-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1060;
+}
