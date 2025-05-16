@@ -1,35 +1,44 @@
-// Activa o desactiva el modo oscuro según preferencia
-function toggleDarkMode() {
+const CLASE_MODO_OSCURO = "dark-mode";
+const CLAVE_STORAGE = "darkMode";
+const VALOR_ACTIVADO = "enabled";
+const VALOR_DESACTIVADO = "disabled";
+
+/**
+ * Cambia entre modo claro y oscuro, y guarda la preferencia.
+ */
+function alternarModoOscuro() {
   const body = document.body;
-  const currentMode = localStorage.getItem("darkMode");
+  const modoActual = localStorage.getItem(CLAVE_STORAGE);
 
-  if (currentMode === "enabled") {
-    body.classList.remove("dark-mode");
-    localStorage.setItem("darkMode", "disabled");
+  if (modoActual === VALOR_ACTIVADO) {
+    body.classList.remove(CLASE_MODO_OSCURO);
+    localStorage.setItem(CLAVE_STORAGE, VALOR_DESACTIVADO);
   } else {
-    body.classList.add("dark-mode");
-    localStorage.setItem("darkMode", "enabled");
+    body.classList.add(CLASE_MODO_OSCURO);
+    localStorage.setItem(CLAVE_STORAGE, VALOR_ACTIVADO);
   }
 }
 
-// Aplica el modo oscuro si estaba activado previamente
-function applySavedDarkMode() {
-  const savedMode = localStorage.getItem("darkMode");
-  if (savedMode === "enabled") {
-    document.body.classList.add("dark-mode");
+/**
+ * Aplica el modo oscuro si el usuario lo tenía habilitado.
+ */
+function aplicarModoOscuroGuardado() {
+  if (localStorage.getItem(CLAVE_STORAGE) === VALOR_ACTIVADO) {
+    document.body.classList.add(CLASE_MODO_OSCURO);
   }
 }
 
-// Configura el botón de dark mode
-function setupDarkModeToggle() {
-  const darkModeBtn = document.getElementById("dark-mode-btn");
-  if (!darkModeBtn) return;
-
-  darkModeBtn.addEventListener("click", toggleDarkMode);
+/**
+ * Asocia el botón al comportamiento de alternar el modo oscuro.
+ */
+function configurarBotonModoOscuro() {
+  const botonModo = document.getElementById("dark-mode-btn");
+  if (botonModo) {
+    botonModo.addEventListener("click", alternarModoOscuro);
+  }
 }
 
-// Ejecutar al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-  applySavedDarkMode();
-  setupDarkModeToggle();
+  aplicarModoOscuroGuardado();
+  configurarBotonModoOscuro();
 });

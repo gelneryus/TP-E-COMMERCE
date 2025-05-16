@@ -1,17 +1,22 @@
-// Ordena los productos según la opción seleccionada
-function sortProducts(products, option) {
-  const sorted = [...products]; // No modificar el array original
+/**
+ * Ordena productos según el criterio seleccionado.
+ * @param {Array} productos 
+ * @param {string} opcion 
+ * @returns {Array}
+ */
+function ordenarProductos(productos, opcion) {
+  const copia = [...productos]; // Para no mutar el array original
 
-  switch (option) {
+  switch (opcion) {
     case "price-asc":
-      return sorted.sort((a, b) => a.price - b.price);
+      return copia.sort((a, b) => a.price - b.price);
     case "price-desc":
-      return sorted.sort((a, b) => b.price - a.price);
+      return copia.sort((a, b) => b.price - a.price);
     case "name-asc":
-      return sorted.sort((a, b) => a.title.localeCompare(b.title));
+      return copia.sort((a, b) => a.title.localeCompare(b.title));
     case "name-desc":
-      return sorted.sort((a, b) => b.title.localeCompare(a.title));
+      return copia.sort((a, b) => b.title.localeCompare(a.title));
     default:
-      return products;
+      return productos;
   }
 }

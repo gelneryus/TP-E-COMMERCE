@@ -1,54 +1,26 @@
 <!-- Barra de navegación principal -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-    <a class="navbar-brand fw-bold" href="#">Mi E-commerce</a>
-    
-    <!-- Menú colapsable para mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <!-- Contenido de la barra -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-      <div class="filters-container">
-        <!-- Buscador -->
-        <input type="text" class="form-control" id="search-input" placeholder="Buscar producto...">
-  
-        <!-- Filtro por categoría -->
-        <select id="category-filter" class="form-select">
-          <option value="">Todas las categorías</option>
-          <!-- Las categorías se insertan dinámicamente -->
-        </select>
-  
-        <!-- Ordenamiento -->
-        <select id="sort-select" class="form-select form-select-sm w-auto">
-          <option value="">Ordenar por</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="name-asc">Nombre: A-Z</option>
-          <option value="name-desc">Nombre: Z-A</option>
-        </select>
-        
-  
-        <!-- Botón modo oscuro -->
-        <button id="dark-mode-btn" class="btn btn-sm btn-outline-light">
-          🌙 Modo Oscuro
-        </button>
-        
-  
-        <!-- Carrito -->
-        <!-- Carrito: Botón de ícono -->
-        <button id="cart-icon" aria-label="Ver carrito">
-          <i class="bi bi-cart"></i> <!-- Icono del carrito -->
-          <span id="cart-count-badge" class="badge bg-danger">0</span> <!-- Contador de productos en el carrito -->
-        </button>
-        
+  <a class="navbar-brand fw-bold" href="#">Mi E-commerce</a>
 
-<!-- Sidebar del carrito (oculto por defecto) -->
-<div id="cart-sidebar" class="cart-sidebar"></div> <!-- Contenedor donde se muestra el carrito -->
+  <!-- Menú colapsable para mobile -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        
-        
-      </div>
+  <!-- Contenido de la barra -->
+  <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+    <div class="filters-container d-flex gap-2 align-items-center">
+      <!-- Buscador -->
+      <input type="text" class="form-control" id="search-input" placeholder="Buscar producto..." aria-label="Buscar productos">
+
+      <!-- Ordenamiento -->
+      <select id="sort-select" class="form-select form-select-sm" aria-label="Ordenar productos">
+        <option value="">Ordenar por</option>
+        <option value="price-asc">Precio ascendente</option>
+        <option value="price-desc">Precio descendente</option>
+        <option value="name-asc">Nombre A-Z</option>
+        <option value="name-desc">Nombre Z-A</option>
+      </select>
     </div>
-  </nav>
-  
+  </div>
+</nav>

@@ -1,11 +1,19 @@
-// Extrae las categorías únicas de la lista de productos
-function getUniqueCategories(products) {
-    const categories = products.map(p => p.category);
-    return [...new Set(categories)]; // Elimina duplicados
-  }
-  
-  // Filtra productos por categoría seleccionada
-  function filterProductsByCategory(products, category) {
-    return products.filter(p => p.category === category);
-  }
-  
+/**
+ * Extrae las categorías únicas desde la lista de productos.
+ * @param {Array} productos 
+ * @returns {Array<string>}
+ */
+function obtenerCategoriasUnicas(productos) {
+  const categorias = productos.map(p => p.category);
+  return [...new Set(categorias)];
+}
+
+/**
+ * Filtra productos por la categoría seleccionada.
+ * @param {Array} productos 
+ * @param {string} categoria 
+ * @returns {Array}
+ */
+function filtrarProductosPorCategoria(productos, categoria) {
+  return productos.filter(p => p.category === categoria);
+}

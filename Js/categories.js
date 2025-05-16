@@ -1,24 +1,30 @@
-// Crea los botones de filtros por categoría en el HTML
-function renderCategories(products) {
-  const container = document.getElementById("category-filters");
-  if (!container) return;
+/**
+ * Renderiza los botones de filtro por categoría.
+ * @param {Array} productos - Lista de productos con categorías.
+ */
+function renderizarFiltrosDeCategorias(productos) {
+  const contenedor = document.getElementById("category-filters");
+  if (!contenedor) return;
 
-  // Obtener categorías únicas
-  const categories = [...new Set(products.map(p => p.category))];
-  categories.sort();
+  const categoriasUnicas = [...new Set(productos.map(p => p.category))].sort();
 
-  // Agregar botón "Todos"
-  container.innerHTML = `
+  const botonesHTML = categoriasUnicas.map(categoria => `
+    <button class="btn btn-sm btn-outline-dark category-filter" data-category="${categoria}">
+      ${capitalizarPrimeraLetra(categoria)}
+    </button>
+  `).join("");
+
+  contenedor.innerHTML = `
     <button class="btn btn-sm btn-outline-dark category-filter" data-category="all">Todos</button>
-    ${categories.map(cat => `
-      <button class="btn btn-sm btn-outline-dark category-filter" data-category="${cat}">
-        ${capitalize(cat)}
-      </button>
-    `).join("")}
+    ${botonesHTML}
   `;
 }
 
-// Capitaliza la primera letra de una cadena
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+/**
+ * Capitaliza la primera letra de un string.
+ * @param {string} texto 
+ * @returns {string}
+ */
+function capitalizarPrimeraLetra(texto) {
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
